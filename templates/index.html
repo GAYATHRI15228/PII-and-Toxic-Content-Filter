@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PII Detection and Anonymization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="C:\Users\gayat\Downloads\pii detection\PII with front end\static\js\script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="{{ logo_url }}" alt="Logo" id="logo" class="logo">
+            <h1>PII Detection and Anonymization Tool</h1>
+            <p>Detect and anonymize personal data in text.</p>
+        </header>
+
+        <section class="form-section">
+            <h2>Enter Text for PII Detection</h2>
+            <form method="POST">
+                <label for="user_text">Enter text:</label>
+                <textarea id="user_text" name="user_text" rows="10" placeholder="Enter text containing PII..."></textarea><br>
+            
+                <label for="strategy_option">Choose anonymization strategy:</label>
+                <select name="strategy_option" id="strategy_option">
+                    <option value="Redact">Redact</option>
+                    <option value="Mask">Mask</option>
+                    <option value="Label">Label</option>
+                    <option value="Faker">Faker</option>
+                </select><br>
+            
+                <button type="submit">Anonymize Text</button>
+            </form>
+            
+        </section>
+
+        <footer>
+            <p>&copy; 2024 PII Detection Tool | All Rights Reserved</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result - PII Detection and Anonymization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PII Detection Results</h1>
+        </header>
+
+        <section class="result-section">
+            <h2>Original Text</h2>
+            <p class="result-text">{{ original_text }}</p>
+
+            <h2>Anonymized Text</h2>
+            <p class="result-text">{{ anonymized_text }}</p>
+
+            <h2>Detected PII Entities</h2>
+            {% if findings %}
+                <ul class="findings-list">
+                    {% for entity, items in findings.items() %}
+                        <li><strong>{{ entity }}</strong>:
+                            <ul>
+                                {% for item in items %}
+                                    <li>{{ item.text }} (Confidence: {{ item.confidence }})</li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No PII entities detected.</p>
+            {% endif %}
+        </section>
+
+        <footer>
+            <p>&copy; 2024 PII Detection Tool | All Rights Reserved</p>
+        </footer>
+    </div>
+</body>
+</html>
